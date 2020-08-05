@@ -1,0 +1,67 @@
+---
+layout: default
+---
+<div class="page-container">
+
+    <div class="content">
+        <article>
+            <div style="width: 100%; height: 300px;">
+                <div style="float: left;">
+                    {% if page.img %}
+                    <img style="width: auto; height: 300px;"
+                        src={{ "/images/" | prepend: site.baseurl | append : page.img}} alt="{{page.title}}">
+                    {% endif %}
+                </div>
+                <div style="float: left; padding: 20px;">
+                    <h1 class="page-title">{{page.title}}</h1>
+
+                    <br>
+
+                    <div class="meta">
+                        <span><i class="fa fa-film" aria-hidden="true"></i> {{page.kind}}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span><i class="fa fa-calendar-o" aria-hidden="true"></i> {{page.year}}</span>
+                    </div>
+
+                    <br>
+                    {%for genre in page.genres%}
+                    <span><i class="fa fa-ticket" aria-hidden="true"></i> {{genre}} </span> &nbsp;&nbsp;&nbsp;&nbsp;
+                    {%endfor%}
+                    <br>
+                    <br>
+                    <a href={{"https://www.imdb.com/title/tt" | append: page.imdb_id}}>
+                        <span>
+                            <!-- <i class="fa fa-imdb" aria-hidden="true"></i> -->
+                            imdb: {{page.imdb_rating}}
+
+                        </span>
+                    </a>
+
+                    <br>
+                    <a href={{"https://www.netflix.com/watch/" | append: page.netflix_id}}>
+                        <span style="color: red;">
+                            <!-- <img style="width: 30px; height: auto;" src="netflix-logo.png" alt=""> -->
+                            Watch Now on Netflix!
+                        </span>
+                    </a>
+
+                </div>
+            </div>
+
+            <br>
+            <br>
+            <span>
+                {{page.content | markdownify}}
+            </span>
+
+            <br>
+            <br>
+
+
+        </article>
+        <!-- {% if page.categories %}
+                {% include disqus.html %}
+            {% else %}
+            {% endif %} -->
+    </div>
+</div>

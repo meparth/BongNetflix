@@ -1,0 +1,75 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+<body>
+<header>
+<!-- <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+  {% include menu-links.html %}
+</div> -->
+
+<!-- Use any element to open the sidenav -->
+<!-- <span id="slid" onclick="openNav()"><i class="fa fa-align-left" aria-hidden="true"></i></span>
+<a href="{{site.baseurl}}/"><h1 class="header-title">{{site.title}}<i class="fa fa-sun-o" aria-hidden="true"></i> </h1></a>
+<h2 class="header-tagline">Son of the Sun</h2> -->
+</header>
+<div id="main">
+
+<a href="{{site.baseurl}}">
+  <div>
+    <img src="{{"bong.png" | prepend: site.baseurl}}" style="margin: auto; width: 320px; height: auto; display: block;">
+    <h4 style="margin: auto; text-align: center;font-family: rajdhani; color: black;">Movies on Netflix that can be seen from
+      Bangladesh</h4>
+  </div>
+</a>
+
+<br><br>
+
+{{content}}
+
+<!-- pagination -->
+{% if paginator.total_pages > 1 %}
+<div class="pagination" style="width: 100%; text-align: center ; position: fixed;bottom: 0; margin: auto;background-color: white;">
+  {% if paginator.previous_page %}
+  <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+  {% else %}
+  <span>&laquo; Prev</span>
+  {% endif %}
+
+  {% for page in (1..paginator.total_pages) %}
+  {% if page == paginator.page %}
+  <span>{{ page }}</span>
+  {% elsif page == 1 %}
+  <a href="{{site.baseurl}}">{{ page }}</a>
+  {% else %}
+  <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+  {% endif %}
+  {% endfor %}
+
+  {% if paginator.next_page %}
+  <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+  {% else %}
+  <span>Next &raquo;</span>
+  {% endif %}
+</div>
+{% endif %}
+
+{% include footer.html %}
+
+</div>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";    
+}
+</script>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
+{% include analytics.html %}
+</body>
+</html>

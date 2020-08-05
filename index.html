@@ -1,0 +1,58 @@
+---
+layout: default
+---
+
+
+
+<div id="container">
+
+   <!-- all tags -->
+   <!-- <div>
+      {% for tag in site.tags %}
+      <h3>{{ tag[0] }}</h3>
+      <ul>
+         {% for post in tag[1] %}
+         <li><a href="{{post.url | prepend: site.baseurl | replace: '//', '/'}}">{{ post.title }}</a></li>
+         {% endfor %}
+      </ul>
+      {% endfor %}
+   </div> -->
+
+
+   <div id="grid" data-columns class="cols">
+      {% for post in paginator.posts %}
+      <a href="{{post.url | prepend: site.baseurl | replace: '//', '/'}}">
+         <div class="box" style="background-color:#{{post.color}}">
+            {% if post.img %}
+            <img class="feat-image" src={{ "/images/" | prepend: site.baseurl | append: post.img }}
+               alt="{{post.title}}">
+            {% endif %}
+            <div class="container">
+               <h3>{{post.title}} ({{post.year}})</h3>
+               <h4>imdb: {{post.imdb_rating}}</h4>
+
+               <br>
+               {%for genre in post.genres%}
+               <span style="border: 1px solid antiquewhite; border-radius: 5px; padding: 0px 6px 0px 6px;"> {{genre}} </span> &nbsp;
+               {%endfor%}
+
+               <p>{{post.description}}</p>
+               <!-- <div class="action">
+                  {{ post.date | date: '%B %d, %Y' }}
+
+                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
+
+               </div> -->
+            </div>
+         </div>
+      </a>
+      {% endfor %}
+
+   </div>
+
+   
+
+
+</div>
+
+<script src="{{site.baseurl}}/js/salvattore.min.js"></script>
