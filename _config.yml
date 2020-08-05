@@ -1,22 +1,13 @@
 title: Bong-Netflix
 desctiption: Here lies the titles available in Netflix Bangladesh
-baseurl: "/BongNetflix/" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-
-# Build settings
+permalink: '/:title'
 markdown: kramdown
-plugins:
-  - jekyll-feed
-  - jekyll-paginate
-  - jekyll-seo-tag
-
-paginate: 5
-paginate_path: /page:num/
+baseurl: "/BongNetflix" # the subpath of your site, e.g. /blog
 
 sass:
     style: compressed
 
-#compress.html
 compress_html:
   clippings: [html,div, p, ul, td, h1, h2, h3, h4,link, meta, footer, nav, img, header, hr, br, head, style, li, ul, ol, time, main, script, title]
   comments: ["<!-- ", " -->"]
@@ -30,4 +21,12 @@ compress_html:
 highlight: rouge
 
 include: [_pages]
-version: 0.8
+version: 0.1
+
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-seo-tag
+
+paginate: 5
+paginate_path: /page:num/

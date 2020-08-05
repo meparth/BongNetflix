@@ -11,9 +11,9 @@ layout: compress
 </header>
 <div id="main">
 
-<a href="{{site.baseurl}}">
+<a href="{{site.baseurl | append: "/"}}">
   <div>
-    <img src="{{"bong.png" | prepend: site.baseurl}}" style="margin: auto; width: 320px; height: auto; display: block;">
+    <img src="{{"/bong.png" | prepend: site.baseurl}}" style="margin: auto; width: 320px; height: auto; display: block;">
     <h4 style="margin: auto; text-align: center;font-family: rajdhani; color: black;">Movies on Netflix that can be seen from
       Bangladesh</h4>
   </div>
@@ -36,7 +36,7 @@ layout: compress
   {% if page == paginator.page %}
   <span>{{ page }}</span>
   {% elsif page == 1 %}
-  <a href="{{site.baseurl}}">{{ page }}</a>
+  <a href="{{site.baseurl | append: "/"}}">{{ page }}</a>
   {% else %}
   <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
   {% endif %}
