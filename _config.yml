@@ -1,6 +1,6 @@
 title: Bong-Netflix
 desctiption: Here lies the titles available in Netflix Bangladesh
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "" 
 permalink: '/:title'
 markdown: kramdown
 baseurl: "/BongNetflix" # the subpath of your site, e.g. /blog
