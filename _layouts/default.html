@@ -25,7 +25,7 @@ layout: compress
 
 <!-- pagination -->
 {% if paginator.total_pages > 1 %}
-<div class="pagination" style="width: 100%; text-align: center ; position: fixed;bottom: 0; margin: auto;background-color: white;">
+<div class="pagination" style="width: 90%; text-align: center ; position: fixed;bottom: 0; margin: auto;background-color: white;">
   {% if paginator.previous_page %}
   <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
   {% else %}
