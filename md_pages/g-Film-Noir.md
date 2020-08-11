@@ -1,6 +1,6 @@
 ---
 title: Film-Noir
 layout: single-genre
-permalink: /g/film-noir
+permalink: /g/Film-Noir
 genre: Film-Noir
 ---
