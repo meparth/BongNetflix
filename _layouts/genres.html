@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+
+<body>
+
+
+    <div style="display: grid; grid-template-columns: auto auto auto; padding: 10px; margin: auto;">
+        {% for tag in site.tags %}
+        {% if tag[0]!="N/A" %}
+        <a href="{{site.baseurl}}/g/{{tag[0]}}">
+            <div class="genre-button"
+                style="margin: 20px; border: 1px solid rgba(0, 0, 0, 0.452); border-radius: 10px; color: rgba(204, 0, 0, 0.863); text-align: center; padding: 20px;">
+
+                <h3>{{ tag[0] }} </h3>
+
+            </div>
+        </a>
+        {% endif %}
+        {% endfor %}
+
+
+    </div>
+
+
+
+</body>
+<style>
+    .genre-button:hover {
+        background-color: antiquewhite;
+    }
+</style>
+<script src="{{site.baseurl}}/js/salvattore.min.js"></script>

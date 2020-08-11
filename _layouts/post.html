@@ -5,15 +5,15 @@ layout: default
 
     <div class="content">
         <article>
-            <div style="width: 100%; height: 300px;">
-                <div style="float: left;">
+            <div style="width: 100%; height: 300px;  border-radius: 5px;">
+                <div style="float: left; padding: 0 20px 0 0;">
                     {% if page.img %}
                     <img style="width: auto; height: 300px;"
                         src={{ "/images/" | prepend: site.baseurl | append : page.img}} alt="{{page.title}}">
                     {% endif %}
                 </div>
-                <div style="float: left; padding: 20px;">
-                    <h1 class="page-title">{{page.title}}</h1>
+                <div style="float: left; ">
+                    <h1 class="page-title" style="white-space: pre-wrap;">{{page.title}}</h1>
 
                     <br>
 
@@ -30,19 +30,25 @@ layout: default
                     <br>
                     <br>
                     <a href={{"https://www.imdb.com/title/tt" | append: page.imdb_id}}>
-                        <span>
+                        <div style="color: rgba(0, 0, 0, 0.658); padding: 5px 0 0 0;">
+                            <img src="{{site.baseurl | append: "/icons/imdb_logo.png"}}" style="width: 40px;">
                             <!-- <i class="fa fa-imdb" aria-hidden="true"></i> -->
-                            imdb: {{page.imdb_rating}}
+                            rating {{page.imdb_rating}}
 
-                        </span>
+                        </div>
                     </a>
-
-                    <br>
                     <a href={{"https://www.netflix.com/watch/" | append: page.netflix_id}}>
-                        <span style="color: red;">
+                        <div style="color: rgba(0, 0, 0, 0.658); padding: 5px 0 0 0;">
+                            Watch Now on &nbsp;
+                            <img src="{{site.baseurl | append: "/icons/netflix_logo.png"}}" style="width: 50px;"> &nbsp;
                             <!-- <img style="width: 30px; height: auto;" src="netflix-logo.png" alt=""> -->
-                            Watch Now on Netflix!
-                        </span>
+                        </div>
+                    </a>
+                    <a href="{{"https://www.youtube.com/results?search_query=" | append:page.title}}">
+                        <div style="color: rgba(0, 0, 0, 0.658); padding: 5px 0 0 0;">
+                            <img src="{{site.baseurl | append: "/icons/youtube_logo.png"}}" style="width: 50px;">
+                            trailers and stuff
+                        </div>
                     </a>
 
                 </div>
@@ -59,6 +65,9 @@ layout: default
 
 
         </article>
-       
+        <!-- {% if page.categories %}
+                {% include disqus.html %}
+            {% else %}
+            {% endif %} -->
     </div>
 </div>

@@ -2,55 +2,67 @@
 layout: default
 ---
 
+<div style="margin: auto; width: 50%; height: auto; text-align: center;">
+
+   <span style="border: rgba(0, 0, 0, 0.5); border-style: none none none solid; padding: 0px 10px 0px ;">
+      <a href="{{site.baseurl | append: "/genres" | replace: '//', '/' }}">
+         <span>genres</span>
+      </a>
+   </span>
+   <span style="border: rgba(0, 0, 0, 0.5); border-style: none solid none solid; padding: 0px 10px 0px ;">
+      <a href="{{site.baseurl | append: "/about" | replace: '//', '/' }}">
+         <span>about</span>
+      </a>
+   </span>
+
+
+</div>
 
 
 <div id="container">
 
-   <!-- all tags -->
-   <!-- <div>
-      {% for tag in site.tags %}
-      <h3>{{ tag[0] }}</h3>
-      <ul>
-         {% for post in tag[1] %}
-         <li><a href="{{post.url | prepend: site.baseurl | replace: '//', '/'}}">{{ post.title }}</a></li>
-         {% endfor %}
-      </ul>
-      {% endfor %}
-   </div> -->
-
 
    <div id="grid" data-columns class="cols">
       {% for post in paginator.posts %}
-      <a href="{{post.url | prepend: site.baseurl | replace: '//', '/'}}">
-         <div class="box" style="background-color:#{{post.color}}">
-            {% if post.img %}
+      <div class="box" style="background-color:#{{post.color}}">
+         {% if post.img %}
+         <a href="{{post.url | prepend: site.baseurl | replace: '//', '/'}}">
+
             <img class="feat-image" src={{ "/images/" | prepend: site.baseurl | append: post.img }}
                alt="{{post.title}}">
-            {% endif %}
-            <div class="container">
+         </a>
+         {% endif %}
+         <div class="container">
+            <a href="{{post.url | prepend: site.baseurl | replace: '//', '/'}}">
+
                <h3>{{post.title}} ({{post.year}})</h3>
-               <h4>imdb: {{post.imdb_rating}}</h4>
+            </a>
+            <h4>imdb: {{post.imdb_rating}}</h4>
 
-               <br>
-               {%for genre in post.genres%}
-               <span style="border: 1px solid antiquewhite; border-radius: 5px; padding: 0px 6px 0px 6px;"> {{genre}} </span> &nbsp;
-               {%endfor%}
+            <br>
+            {%for genre in post.genres%}
+            <a href="{{site.baseurl}}/g/{{genre}}">
 
-               <p>{{post.description}}</p>
-               <!-- <div class="action">
+               <span style="border: 1px solid antiquewhite; border-radius: 5px; padding: 0px 6px 0px 6px;"> {{genre}}
+               </span> &nbsp;
+            </a>
+            {%endfor%}
+
+            <p>{{post.description}}</p>
+            <!-- <div class="action">
                   {{ post.date | date: '%B %d, %Y' }}
 
                   <i class="fa fa-arrow-right" aria-hidden="true"></i>
 
                </div> -->
-            </div>
          </div>
-      </a>
+      </div>
+
       {% endfor %}
 
    </div>
 
-   
+
 
 
 </div>

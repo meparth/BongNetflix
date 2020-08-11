@@ -1,0 +1,91 @@
+---
+layout: default
+---
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+
+<body>
+
+    <h1 style="text-align: center; margin: auto; font-family: rajdhani;">All the {{ page.genre }} Shows</h1>
+    <div id="container">
+        <div id="grid" data-columns class="cols">
+            {% for tag in site.tags %}
+            {% if tag[0]==page.genre %}
+
+            {% for post in tag[1] %}
+            <div class="box" style="background-color:#{{post.color}}">
+                {% if post.img %}
+                <a href="{{post.url | prepend: site.baseurl | replace: '//', '/'}}">
+
+                    <img class="feat-image" src={{ "/images/" | prepend: site.baseurl | append: post.img }}
+                        alt="{{post.title}}">
+                </a>
+                {% endif %}
+                <div>
+                    <div class="container">
+
+                        <a href="{{post.url | prepend: site.baseurl | replace: '//', '/'}}">
+                            <h3>{{post.title}} ({{post.year}})</h3>
+                        </a>
+                        <h4>imdb: {{post.imdb_rating}}</h4>
+
+                        <br>
+                        {%for genre in post.genres%}
+                        <a href="{{site.baseurl}}/g/{{genre}}">
+                            <span style="border: 1px solid antiquewhite; border-radius: 5px; padding: 0px 6px 0px 6px;">
+                                {{genre}}
+                            </span> &nbsp;
+                        </a>
+                        {%endfor%}
+
+                        <p>{{post.description}}</p>
+
+                    </div>
+                </div>
+            </div>
+
+
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+
+<script src="{{site.baseurl}}/js/salvattore.min.js"></script>
+
+
+
+
+
+<!-- {% for tag in site.tags %}
+{% if tag[0]==page.genre %}
+<h3>{{ tag[0] }}</h3>
+{% for post in tag[1] %}
+<a href="{{post.url | prepend: site.baseurl | replace: '//', '/'}}">
+    <div class="box" style="background-image: url({{ "/images/" | prepend: site.baseurl | append: post.img }});">
+       
+        <div>
+            <div class="container" style="background-color: #{{post.color}}; opacity: .8; border-radius: 5px;">
+                <h3>{{post.title}} ({{post.year}})</h3>
+                <h4>imdb: {{post.imdb_rating}}</h4>
+
+                <br>
+                {%for genre in post.genres%}
+                <span style="border: 1px solid antiquewhite; border-radius: 5px; padding: 0px 6px 0px 6px;">
+                    {{genre}}
+                </span> &nbsp;
+                {%endfor%}
+
+                <p>{{post.description}}</p>
+
+            </div>
+        </div>
+    </div>
+</a>
+
+{% endfor %}
+{% endif %}
+{% endfor %} -->
