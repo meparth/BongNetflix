@@ -1,5 +1,5 @@
 ---
-title: 404 Error
+title: about
 layout: post
 permalink: /about/
 ---
