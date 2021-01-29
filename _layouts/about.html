@@ -1,0 +1,32 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+
+<body>
+    <header>
+
+
+    </header>
+    <div id="main">
+
+        <a href="{{site.baseurl | append: " /"}}">
+            <div>
+                <img src="{{" /bong.png" | prepend: site.baseurl}}"
+                    style="margin: auto; width: 320px; height: auto; display: block;margin-top: -70px;">
+                <h4 style="margin: auto; text-align: center;font-family: rajdhani; color: black;">Movies on Netflix that
+                    can be seen from
+                    Bangladesh</h4>
+            </div>
+        </a>
+
+        <br><br>
+        <div style="text-align: center;">
+            These are the movies and tv shows and documentaries that can be viewed from bangladesh in netflix.
+        </div>
+
+        {% include footer.html %}
+    </div>
+</body>
